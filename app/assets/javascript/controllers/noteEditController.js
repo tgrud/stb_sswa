@@ -1,4 +1,4 @@
-angular.module('NoteWrangler').controller('NotesEditController', function(Note, $scope, $routeParams){
+angular.module('NoteWrangler').controller('NotesEditController', function(Note, $scope, $routeParams, $location){
     $scope.note = Note.get({id: $routeParams.id});
     $scope.isSubmitting = false;
     
@@ -7,6 +7,7 @@ angular.module('NoteWrangler').controller('NotesEditController', function(Note, 
         
         note.$update().finally(function(){
             $scope.isSubmitting = false;
+            $location.path("/notes/" + note.id);
         });
     }
 });

@@ -4,7 +4,7 @@ angular.module('NoteWrangler').directive('title', function($timeout){
             $(element).tooltip();
         });
         
-        $scope.$on('$destroy', function(){
+        scope.$on('$destroy', function(){
            $(element).tooltip('destroy'); 
         });
     }
